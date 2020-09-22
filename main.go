@@ -8,8 +8,15 @@ import (
 )
 
 func main() {
-	// primary numbers
-	p, q := 17, 19
+	var p, q int
+	fmt.Println("enter two defferent primary numbers")
+	fmt.Println("like 17 19")
+	fmt.Scan(&p, &q)
+
+	var planText int64
+	fmt.Println("enter plan text")
+	fmt.Printf("[planText < %d] \n", p*q)
+	fmt.Scan(&planText)
 
 	N := int64(p * q)
 	println(N)
@@ -25,7 +32,7 @@ func main() {
 	fmt.Printf("private key: %d\n", D)
 
 	// p < N
-	planText := int64(123)
+	//planText := int64(123)
 	fmt.Printf("plan text : %d\n", planText)
 
 	// planText^E mod N
