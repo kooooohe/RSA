@@ -17,11 +17,10 @@ func main() {
 	fmt.Println("enter plan text")
 	fmt.Printf("[planText < %d] \n", p*q)
 	fmt.Scan(&planText)
+	fmt.Printf("plan text: %d\n", planText)
 
 	N := int64(p * q)
-	println(N)
 	L := culcLeastCommonMultiple(p-1, q-1)
-	println(L)
 
 	// gcd(E,L) = 1
 	E := makePublicKey(L)
@@ -31,17 +30,13 @@ func main() {
 	D := int64(makePrivateKey(E, int64(L)))
 	fmt.Printf("private key: %d\n", D)
 
-	// p < N
-	//planText := int64(123)
-	fmt.Printf("plan text : %d\n", planText)
-
 	// planText^E mod N
 	cryptgram := new(big.Int).Exp(big.NewInt(planText), big.NewInt(E), big.NewInt(N))
-	fmt.Printf("crypt gram key: %d\n", cryptgram.Int64())
+	fmt.Printf("crypt gram: %d\n", cryptgram.Int64())
 
 	// cryptgram^D mod N
 	res := new(big.Int).Exp(cryptgram, big.NewInt(D), big.NewInt(N))
-	fmt.Printf("plan text : %d\n", res.Int64())
+	fmt.Printf("plan text: %d\n", res.Int64())
 }
 
 func makePublicKey(l int) int64 {
