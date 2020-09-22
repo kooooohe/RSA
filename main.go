@@ -16,13 +16,11 @@ func main() {
 	L := culcLeastCommonMultiple(p-1, q-1)
 	println(L)
 
-	// E*D mod L = 1
+	// gcd(E,L) = 1
 	E := makePublicKey(L)
-	//E := int64(5)
 	fmt.Printf("public key: %d\n", E)
 
 	// E*D mod L = 1
-	//D := int64(29)
 	D := int64(makePrivateKey(E, int64(L)))
 	fmt.Printf("private key: %d\n", D)
 
